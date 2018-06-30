@@ -12,6 +12,8 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import kr.co.mashup.mapc.dto.Color;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by ethan.kim on 2018. 7. 1..
  */
@@ -29,9 +31,23 @@ public class ColorController {
         return Arrays.asList(generateColor("#aaaaaa"), generateColor("#bbbbbb"));
     }
 
+    @ApiOperation(value = "Color 배색 추천", notes = "Color 배색을 조회한다")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 500, message = "서버 오류")
+    })
+    @GetMapping(path = "/color/coloration")
+    public List<Color> getColorColoration(HttpServletRequest request) {
+        String selectionColor = request.getParameter("selectionColor");
+        //선택한색을 가지고 배색을 얻어오는 서비스로직을 이용한다.
+        //return Arrays.asList(getColoration(selectionColor));
+        return Arrays.asList(generateColor("#aaaaaa"), generateColor("#bbbbbb"));
+    }
+
     private Color generateColor(String code) {
         Color color = new Color();
         color.setCode(code);
         return color;
     }
+
 }
