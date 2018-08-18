@@ -20,9 +20,9 @@ about: Describe User Story
 
 <br>
 
-## Reference
+> #### Reference
 > FIXME: fill reference link
-* `[title](link)`
+> * `[title](link)`
 
 ---
 
@@ -50,5 +50,5 @@ about: Describe User Story
 
 <br>
 
-## Reference
-* [What Are Acceptance Criteria: Explanation, Examples and Template](https://existek.com/blog/what-are-acceptance-criteria/)
+> #### Reference
+> * [What Are Acceptance Criteria: Explanation, Examples and Template](https://existek.com/blog/what-are-acceptance-criteria/)
