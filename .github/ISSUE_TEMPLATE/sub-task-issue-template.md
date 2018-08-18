@@ -9,7 +9,7 @@ about: Describe the Sub Task related to User Story or Task
 > FIXME: Describe the task in free format
 * `<something task description>`
 
-## 완료 조건
+### 완료 조건
 > FIXME: Describe the completion condition
 - [ ] `<completion condition>`
 
