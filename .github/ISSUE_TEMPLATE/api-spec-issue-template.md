@@ -7,8 +7,11 @@ about: Define API specifications
 # `<Issue Title>`
 
 ## Request
-- URI: 
-- HTTP Method: 
+
+| HTTP Method | URI |
+|:------------|:----|
+| | |
+
 - Header
 
 | Name | Value | Description |
@@ -96,8 +99,11 @@ FIXME: fill response data
 # User's issue list query API
 
 ## Request
-- URI: /user/issues
-- HTTP Method: GET
+
+| HTTP Method | URI |
+|:------------|:----|
+| GET | /user/:owner/issues |
+
 - Header
 
 | Name | Value | Description |
