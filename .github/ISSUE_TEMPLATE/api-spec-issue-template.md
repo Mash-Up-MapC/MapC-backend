@@ -4,7 +4,7 @@ about: Define API specifications
 
 ---
 
-# <Issue Title>
+# `<Issue Title>`
 
 ## Request
 - URI: 
@@ -53,7 +53,7 @@ FIXME: fill response data
 |:-------|:------------|
 | | |
 
-#### <Status>
+#### `<Status>`
 ```
 FIXME: fill response data
 ```
