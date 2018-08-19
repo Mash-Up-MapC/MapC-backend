@@ -57,7 +57,7 @@ about: Describe the Sub Task related to User Story or Task
 <br> 
 
 ## relate to issue
-* issue tracking을 통해 프로젝트를 진행하기 #15
+* issue tracking을 통해 프로젝트를 진행하기 #n
 
 <br>
 

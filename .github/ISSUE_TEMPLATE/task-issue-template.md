@@ -11,6 +11,18 @@ about: Describe Tasks not related to user story
 
 <br>
 
+### 완료 조건
+> FIXME: fill completion condition
+- [ ] `<completion condition>`
+
+<br> 
+
+## relate to issue
+> FIXME: fill  relate to issue
+* `<issue title>(#<issue number>)`
+
+<br>
+
 > #### Reference
 > FIXME: fill reference link
 > * `[title](link)`
@@ -39,6 +51,14 @@ about: Describe Tasks not related to user story
 
 # JWT를 이용한 authentication, authorization에 Spring Security 적용
 * JWT로 authentication, authorization 구현(#5)에서 진행한 기능의 improvement
+
+### 완료 조건
+- [ ] Spring Security로 JWT기반  authentication, authorization을 구현한다
+
+<br> 
+
+## relate to issue
+* JWT로 authentication, authorization 구현(#n)
 
 <br>
 

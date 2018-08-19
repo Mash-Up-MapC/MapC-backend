@@ -56,12 +56,12 @@ about: Describe User Story
 <br>
 
 ## UAC
-* co-worker들은 ZenHub plugin을 이용해 같은 interface를 사용한다 #14 
-* issue template을 통해 통일된 형식의 issue를 작성할 수 있다 #13 
-* story가 있는 작업들은 UAC 기반으로 issue를 생성한다 #12 
+* co-worker들은 ZenHub plugin을 이용해 같은 interface를 사용한다 #n
+* issue template을 통해 통일된 형식의 issue를 작성할 수 있다 #n
+* story가 있는 작업들은 UAC 기반으로 issue를 생성한다 #n
    * story와 관련없는 작업들은 task로 생성한다
-* co-worker들은 PR 생성시 slack으로 알림을 받을 수 있다 #16 
-* co-worker들은 정해진 규칙에 따라 프로젝트를 진행한다 #17 
+* co-worker들은 PR 생성시 slack으로 알림을 받을 수 있다 #n 
+* co-worker들은 정해진 규칙에 따라 프로젝트를 진행한다 #n
 
 <br>
 

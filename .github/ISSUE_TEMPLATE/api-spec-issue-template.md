@@ -195,7 +195,7 @@ Content-Type: application/json
 <br>
 
 ## relate to issue
-* Issue List 화면 개발 #10
+* Issue List 화면 개발 #n
 
 <br>
 
