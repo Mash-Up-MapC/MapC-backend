@@ -22,7 +22,7 @@ public class ColorController {
     @ApiOperation(value = "Color 리스트 조회", notes = "Color 리스트 조회한다")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "조회 성공"),
-            @ApiResponse(code = 500, message = "서버 오류")
+            @ApiResponse(code = 400, message = "Invalid Parameter")
     })
     @GetMapping(path = "/color")
     public List<Color> getColor() {
