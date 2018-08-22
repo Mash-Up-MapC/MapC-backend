@@ -26,20 +26,13 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-
-    // persitence
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
 //    compile('org.springframework.boot:spring-boot-starter-jooq')
-
-    // DB
     runtime('mysql:mysql-connector-java')
-
     compileOnly('org.projectlombok:lombok')
-
-    // Swagger
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-
     testCompile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
