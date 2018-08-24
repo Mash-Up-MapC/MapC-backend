@@ -2,8 +2,7 @@ package kr.co.mashup.mapc.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -12,4 +11,12 @@ import javax.persistence.Table;
 @ToString
 @Table(name = "info_type")
 public class InformationType {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_def_id")
+    private TypeDefine typeDef;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "information_id")
+    private Information information;
 }

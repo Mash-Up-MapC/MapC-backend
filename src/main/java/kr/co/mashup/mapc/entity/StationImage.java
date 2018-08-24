@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @Entity
 @ToString
-@Table(name = "station")
+@Table(name = "station_image")
 public class StationImage {
 
     @Id

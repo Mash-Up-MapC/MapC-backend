@@ -41,11 +41,11 @@ public class Course  {
     @Column(name = "description")
     private String description;
 
-    @Builder
-    public Course (String courseName, String description, String noteOne, String noteTwo) {
-        this.courseName = courseName;
-        this.description = description;
-        this.noteOne = noteOne;
-        this.noteTwo = noteTwo;
-    }
+//    @Builder
+//    public Course (String courseName, String description, String noteOne, String noteTwo) {
+//        this.courseName = courseName;
+//        this.description = description;
+//        this.noteOne = noteOne;
+//        this.noteTwo = noteTwo;
+//    }
 }

@@ -10,18 +10,17 @@ import java.util.List;
 @Setter
 @Entity
 @ToString
-@Table(name = "company")
-public class Company extends BaseTimeEntity {
+@Table(name = "type_def")
+public class TypeDefine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "company_name")
-    private String companyName;
-
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "company_id")
-    private List<Course> courseItems;
+    @JoinColumn(name = "type_def_id")
+    private List<InformationType> typeOfInfo;
 
+    @Column(name = "name")
+    private String price;
 }

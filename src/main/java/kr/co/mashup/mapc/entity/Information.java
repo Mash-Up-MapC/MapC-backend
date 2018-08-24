@@ -20,8 +20,9 @@ public class Information {
     @JoinColumn(name = "station_id")
     private Station station;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "information_id")
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "information")
     private InformationType infoType;
 
     @Column(name = "title")
