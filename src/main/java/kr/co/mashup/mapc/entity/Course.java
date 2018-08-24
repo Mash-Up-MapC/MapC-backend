@@ -32,16 +32,20 @@ public class Course  {
     @Column(name = "course_name")
     private String courseName;
 
+    @Column(name = "note_one")
+    private String noteOne;
+
+    @Column(name = "note_two")
+    private String noteTwo;
+
     @Column(name = "description")
     private String description;
 
-    @Column(name = "is_audio")
-    private Integer isAudio;
-
     @Builder
-    public Course (String courseName, String description, Integer isAudio) {
+    public Course (String courseName, String description, String noteOne, String noteTwo) {
         this.courseName = courseName;
         this.description = description;
-        this.isAudio = isAudio;
+        this.noteOne = noteOne;
+        this.noteTwo = noteTwo;
     }
 }
