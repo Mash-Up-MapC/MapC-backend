@@ -12,6 +12,10 @@ import javax.persistence.*;
 @Table(name = "info_type")
 public class InformationType {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_def_id")
     private TypeDefine typeDef;
