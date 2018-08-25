@@ -29,6 +29,14 @@ public class Course  {
     @JoinColumn(name = "course_id")
     private List<Price> priceItems;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
+    private List<Booking> bookingItems;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
+    private List<Station> stationItems;
+
     @Column(name = "course_name")
     private String courseName;
 
