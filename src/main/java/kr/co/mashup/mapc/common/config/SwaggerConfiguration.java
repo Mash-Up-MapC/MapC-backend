@@ -1,4 +1,4 @@
-package kr.co.mashup.mapc.config;
+package kr.co.mashup.mapc.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

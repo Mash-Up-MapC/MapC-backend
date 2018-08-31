@@ -42,7 +42,7 @@ public class CourseController {
                 .description("덕수궁은 조선시대에 지어진 궁궐이다. 덕수궁 내에는 석조전, 덕수궁 국립현대미술관, 그리고 중명전 등의 아름다운 서양식 건물이 자리잡고 있다.")
                 .build();
         touristAttractions3 = TouristAttractions.builder()
-                .name("창덕")
+                .name("창덕궁")
                 .img("https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png")
                 .description("대한민국 최대 규모의 국립 박물관이다. 대한민국의 수많은 국보와 보물들을 관람할 수 있다. 2014년 10월에 개장한 국립한글박물관과 용산가족공원이 인근에 위치해 다양한 관광을 할 수 있다.")
                 .build();
