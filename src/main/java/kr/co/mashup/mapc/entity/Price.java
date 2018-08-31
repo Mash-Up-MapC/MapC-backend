@@ -21,7 +21,7 @@ public class Price {
     private Course course;
 
     @Column(name = "price")
-    private String price;
+    private Integer price;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "passenger_type")

@@ -20,7 +20,7 @@ public class CourseDto {
     public static class CourseSelection {
         private long id;
         private String courseName;
-        private List<String> price;
+        private List<Integer> price;
         private List<Price.PassengerType> passengerType;
 
         public CourseSelection(Course entity) {

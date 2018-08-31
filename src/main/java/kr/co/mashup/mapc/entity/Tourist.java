@@ -9,9 +9,9 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@ToString
+@ToString(exclude = {"bookingItems"})
 @Table(name = "tourist")
-public class Tourist extends BaseTimeEntity {
+public class Tourist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // TODO 타입별 차이 알아내기
