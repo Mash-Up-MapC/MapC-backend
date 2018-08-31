@@ -59,7 +59,7 @@ public class CourseController {
                 .price("성인 18,000원 / 학생(5세-고등학생) 12,000원")
                 .operatingTime("첫차 오전 9시~막차 오후 6시 (운행시간 내, 광화문 출/도착 기준)")
                 .description("도심, 고궁, 남산코스는 총 22곳의 정류장을 순환하며 원하는 정류장에서 하차하여 자유관람 30분 간격으로 다음 버스를 이용할 수 있습니다. <font>(예약상황에 따라 배차간격이 25분~40분 간격으로 운행됩니다.)</font>")
-                .touristDesctination(list)
+                .touristDestination(list)
                 .route(null)
                 .touristAttractions(list)
                 .build();
