@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -20,17 +19,17 @@ import java.util.List;
  * Created by ethan.kim on 2018. 8. 30..
  */
 @RestController
-@RequestMapping(path = "/courses/{course_Id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(description = "코스", tags = {"course"})
 public class CourseController {
 
     private static final DetailCourse DETAIL_COURSE;
     static {
         TouristAttractions touristAttractions, touristAttractions2, touristAttractions3;
-        String[] imgs = {"https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png",
-                        "https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png",
-                        "https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png"};
+        List<String> imgs = new ArrayList<>();
         List<TouristAttractions> list = new ArrayList<>();
+        imgs.add("https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png");
+        imgs.add("https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png");
+        imgs.add("https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png");
         touristAttractions = TouristAttractions.builder()
                 .name("광화문")
                 .img("https://assets-cdn.github.com/images/modules/site/integrators/travis-ci.png")
@@ -68,11 +67,11 @@ public class CourseController {
     public CourseController() {
     }
 
-    @ApiOperation(value = "코스 상세보기", notes = "코스 상세보기 한다")
+    @ApiOperation(value = "코스 상세보기 조회", notes = "코스 상세보기 조회 한다")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "조회 성공")
     })
-    @GetMapping
+    @GetMapping(path = "/courses/{course_Id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<DetailCourse> getCourses(@PathVariable(value = "course_Id") String courseId) {
         return ResponseEntity.ok(DETAIL_COURSE);
     }

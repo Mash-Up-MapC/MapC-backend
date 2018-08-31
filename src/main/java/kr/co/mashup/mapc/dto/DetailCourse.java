@@ -13,7 +13,7 @@ public class DetailCourse {
     private long id;
 
     @JsonProperty("img")
-    private String[] img;
+    private List<String> img;
 
     @JsonProperty("type")
     private String type;
@@ -40,7 +40,7 @@ public class DetailCourse {
     private List<TouristAttractions> touristAttractions;
 
     @Builder
-    public DetailCourse(long id, String[] img, String type, String name, String price, String operatingTime, String description, List<TouristAttractions> touristDestination, List<CourseRoute> route, List<TouristAttractions> touristAttractions) {
+    public DetailCourse(long id, List<String> img, String type, String name, String price, String operatingTime, String description, List<TouristAttractions> touristDestination, List<CourseRoute> route, List<TouristAttractions> touristAttractions) {
         this.id = id;
         this.img = img;
         this.type = type;
