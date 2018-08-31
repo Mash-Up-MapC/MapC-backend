@@ -5,24 +5,24 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "tourist")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
-@Entity
-@ToString
-@Table(name = "tourist")
+@ToString(exclude = {"bookings"})
+@EqualsAndHashCode(callSuper = false, of = "touristId")
 public class Tourist extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // TODO 타입별 차이 알아내기
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "tourist_id")
+    private Long touristId;
 
-    @Column(name = "uuid")
+    @Column(name = "uuid", nullable = false)
     private String uuid;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // TODO FetchType 별 차이 알아내기
-    @JoinColumn(name = "tourist_id")
-    private List<Booking> bookingItems;
+    @OneToMany(mappedBy = "tourist")
+    private List<Booking> bookings;
 
     @Builder
     public Tourist(String uuid) {

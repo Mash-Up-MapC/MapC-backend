@@ -3,24 +3,24 @@ package kr.co.mashup.mapc.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
+@Entity
+@Table(name = "station_image")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
-@Entity
 @ToString
-@Table(name = "station_image")
-public class StationImage {
+@EqualsAndHashCode(callSuper = false, of = "stationImageId")
+public class StationImage extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "station_image_id")
+    private Long stationImageId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "station_id")
     private Station station;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", length = 300)
     private String imageUrl;
 }

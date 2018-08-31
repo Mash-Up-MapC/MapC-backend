@@ -5,23 +5,22 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "company")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
-@Entity
-@ToString
-@Table(name = "company")
+@ToString(exclude = {"courses"})
+@EqualsAndHashCode(callSuper = false, of = "companyId")
 public class Company extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "company_id")
+    private Long companyId;
 
-    @Column(name = "company_name")
+    @Column(name = "company_name", length = 45, nullable = false)
     private String companyName;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "company_id")
-    private List<Course> courseItems;
-
+    @OneToMany(mappedBy = "company")
+    private List<Course> courses;
 }

@@ -2,14 +2,12 @@ package kr.co.mashup.mapc.dto;
 
 import kr.co.mashup.mapc.entity.Course;
 import kr.co.mashup.mapc.entity.Price;
-import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public class CourseDto {
@@ -20,18 +18,18 @@ public class CourseDto {
     public static class CourseSelection {
         private long id;
         private String courseName;
-        private List<String> price;
+        private List<Integer> price;
         private List<Price.PassengerType> passengerType;
 
         public CourseSelection(Course entity) {
-            this.id = entity.getId();
-            this.courseName = entity.getCourseName();
+            this.id = entity.getCourseId();
+            this.courseName = entity.getTitle();
             price = new ArrayList<>();
-            for (Price p : entity.getPriceItems()) {
+            for (Price p : entity.getPrices()) {
                 price.add(p.getPrice());
             }
             passengerType = new ArrayList<>();
-            for (Price pp : entity.getPriceItems()) {
+            for (Price pp : entity.getPrices()) {
                 passengerType.add(pp.getPassengerType());
             }
         }

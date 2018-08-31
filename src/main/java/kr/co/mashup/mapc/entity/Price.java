@@ -4,24 +4,25 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "price")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
-@Entity
 @ToString
-@Table(name = "price")
-public class Price {
+@EqualsAndHashCode(callSuper = false, of = "priceId")
+public class Price extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "price_id")
+    private Long priceId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private Course course;
 
     @Column(name = "price")
-    private String price;
+    private int price;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "passenger_type")

@@ -5,39 +5,45 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "station")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
-@Entity
-@ToString
-@Table(name = "station")
-public class Station {
+@ToString(exclude = {"stationImages"})
+@EqualsAndHashCode(callSuper = false, of = "stationId")
+public class Station extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "station_id")
+    private Long stationId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private Course course;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "station_id")
-    private List<StationImage> stationImage;
-
-    @Column(name = "station_name")
+    @Column(name = "station_name", length = 50, nullable = false)
     private String stationName;
 
-    @Column(name = "station_number")
-    private String stationNumber;
+    @Column(name = "station_number", nullable = false)
+    private int stationNumber;
 
-    @Column(name = "latitude")
+    @Column(name = "latitude", nullable = false)
     private Double latitude;
 
-    @Column(name = "longitude")
+    @Column(name = "longitude", nullable = false)
     private Double longitude;
 
-    @Column(name = "audio_content")
+    @Lob
+    @Column(name = "audio_content", columnDefinition = "TEXT")
     private String audioContent;
 
+    @OneToMany(mappedBy = "station")
+    private List<StationImage> stationImages;
+
+    @OneToMany(mappedBy = "station")
+    private List<Information> informations;
+
+    @OneToMany(mappedBy = "station")
+    private List<StationTimeTable> timeTables;
 }
