@@ -12,13 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString
-@EqualsAndHashCode(callSuper = false, of = "stationImageId")
+@EqualsAndHashCode(callSuper = false, of = "id")
 public class StationImage extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "station_image_id")
-    private Long stationImageId;
+    @Column(name = "id")
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "station_id")

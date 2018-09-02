@@ -13,13 +13,13 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"courseOptions", "courseImages", "prices", "bookings", "stations"})
-@EqualsAndHashCode(callSuper = false, of = "courseId")
+@EqualsAndHashCode(callSuper = false, of = "id")
 public class Course extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "course_id")
-    private Long courseId;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "title", length = 45, nullable = false)
     private String title;

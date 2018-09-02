@@ -13,13 +13,13 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"bookings"})
-@EqualsAndHashCode(callSuper = false, of = "touristId")
+@EqualsAndHashCode(callSuper = false, of = "id")
 public class Tourist extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tourist_id")
-    private Long touristId;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "uuid", nullable = false)
     private String uuid;

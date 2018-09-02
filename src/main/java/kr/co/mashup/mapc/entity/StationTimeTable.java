@@ -15,14 +15,13 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString
-@EqualsAndHashCode(callSuper = false, of = "stationTimeTableId")
+@EqualsAndHashCode(callSuper = false, of = "id")
 public class StationTimeTable extends BaseTimeEntity {
-
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "station_time_table_id")
-    private Long stationTimeTableId;
+    @Column(name = "id")
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "station_id")

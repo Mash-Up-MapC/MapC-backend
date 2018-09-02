@@ -22,7 +22,7 @@ public class CourseDto {
         private List<Price.PassengerType> passengerType;
 
         public CourseSelection(Course entity) {
-            this.id = entity.getCourseId();
+            this.id = entity.getId();
             this.courseName = entity.getTitle();
             price = new ArrayList<>();
             for (Price p : entity.getPrices()) {
