@@ -5,6 +5,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * 예약 정보
+ */
 @Entity
 @Table(name = "booking")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,8 +29,8 @@ public class Booking extends BaseTimeEntity {
     @JoinColumn(name = "course_id")
     private Course course;
 
-    @Column(name = "booker", length = 45, nullable = false)
-    private String booker;
+    @Column(name = "booker_name", length = 45, nullable = false)
+    private String bookerName;
 
     @Column(name = "booker_password")
     private String bookerPassword;
@@ -58,4 +61,32 @@ public class Booking extends BaseTimeEntity {
 
     @Column(name = "payment_method", length = 45, nullable = false)
     private String paymentMethod;
+
+    @Builder
+    public Booking(Tourist tourist,
+                   Course course,
+                   String bookerName,
+                   String bookerPassword,
+                   String cellPhoneNumber,
+                   String homePhoneNumber,
+                   int adultPersonnel,
+                   int childPersonnel,
+                   String bookingDate,
+                   String boardingTime,
+                   String boardingPlace,
+                   int sumPrice, String paymentMethod) {
+        this.tourist = tourist;
+        this.course = course;
+        this.bookerName = bookerName;
+        this.bookerPassword = bookerPassword;
+        this.cellPhoneNumber = cellPhoneNumber;
+        this.homePhoneNumber = homePhoneNumber;
+        this.adultPersonnel = adultPersonnel;
+        this.childPersonnel = childPersonnel;
+        this.bookingDate = bookingDate;
+        this.boardingTime = boardingTime;
+        this.boardingPlace = boardingPlace;
+        this.sumPrice = sumPrice;
+        this.paymentMethod = paymentMethod;
+    }
 }

@@ -21,9 +21,14 @@ public class Category extends BaseTimeEntity {
     @Column(name = "category_id")
     private Long categoryId;
 
+    @Column(name = "name", length = 100)
+    private String name;
+
     @OneToMany(mappedBy = "category")
     private List<InformationCategory> informationCategories;
 
-    @Column(name = "name", length = 100)
-    private String name;
+    @Builder
+    public Category(String name) {
+        this.name = name;
+    }
 }

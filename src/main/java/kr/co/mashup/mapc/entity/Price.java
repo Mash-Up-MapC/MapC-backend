@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * 가격 정보
+ */
 @Entity
 @Table(name = "price")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,6 +24,7 @@ public class Price extends BaseTimeEntity {
     @JoinColumn(name = "course_id")
     private Course course;
 
+    // FIXME: 2018. 9. 2. price.price ?? 살짝 이상한듯..
     @Column(name = "price")
     private int price;
 
@@ -31,5 +35,12 @@ public class Price extends BaseTimeEntity {
     public enum PassengerType {
         ADULT,
         CHILD
+    }
+
+    @Builder
+    public Price(Course course, int price, PassengerType passengerType) {
+        this.course = course;
+        this.price = price;
+        this.passengerType = passengerType;
     }
 }

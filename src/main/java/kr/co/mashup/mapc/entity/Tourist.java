@@ -5,6 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * 관광객
+ */
 @Entity
 @Table(name = "tourist")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

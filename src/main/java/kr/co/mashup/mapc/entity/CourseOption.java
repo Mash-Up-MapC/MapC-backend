@@ -5,6 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 
 /**
+ * 코스의 부가 정보
+ * <p>
  * Created by ethan.kim on 2018. 9. 1..
  */
 @Entity
@@ -31,8 +33,15 @@ public class CourseOption {
     @Column(name = "option_value", length = 1000, nullable = false)
     private String optionValue;
 
-    enum OptionType {
+    public enum OptionType {
         SUMMARY,
         DETAIL
+    }
+
+    @Builder
+    public CourseOption(Course course, OptionType optionType, String optionValue) {
+        this.course = course;
+        this.optionType = optionType;
+        this.optionValue = optionValue;
     }
 }

@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * 코스의 이미지
+ */
 @Entity
 @Table(name = "course_image")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -23,4 +26,10 @@ public class CourseImage extends BaseTimeEntity {
 
     @Column(name = "image_url", length = 300)
     private String imageUrl;
+
+    @Builder
+    public CourseImage(Course course, String imageUrl) {
+        this.course = course;
+        this.imageUrl = imageUrl;
+    }
 }

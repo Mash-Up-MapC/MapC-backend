@@ -5,6 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * 관광 코스
+ */
 @Entity
 @Table(name = "course")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -55,4 +58,15 @@ public class Course extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "course")
     private List<Station> stations;
+
+    @Builder
+    public Course(String title, String subTitle, String mainColor, String subColor, String iconUrl, String description, Company company) {
+        this.title = title;
+        this.subTitle = subTitle;
+        this.mainColor = mainColor;
+        this.subColor = subColor;
+        this.iconUrl = iconUrl;
+        this.description = description;
+        this.company = company;
+    }
 }

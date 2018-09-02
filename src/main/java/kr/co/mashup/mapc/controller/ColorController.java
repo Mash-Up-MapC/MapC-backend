@@ -1,16 +1,21 @@
 package kr.co.mashup.mapc.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Arrays;
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import kr.co.mashup.mapc.dto.Color;
+import kr.co.mashup.mapc.entity.CourseOption;
+import kr.co.mashup.mapc.repository.CourseOptionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by ethan.kim on 2018. 7. 1..
@@ -33,5 +38,37 @@ public class ColorController {
         Color color = new Color();
         color.setCode(code);
         return color;
+    }
+
+
+//    @Autowired
+//    private CourseOptionRepository option2Repository;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @GetMapping(path = "/test")
+    public List<OptionDto> test() throws Exception {
+
+//        List<CourseOption> options = option2Repository.findByCourseIdAndOptionType(1L, "summary");
+
+
+//        List<OptionDto> optionDtos = new ArrayList<>();
+//        for (CourseOption option2 : options) {
+//            optionDtos.add(objectMapper.readValue(option2.getOptionValue(), OptionDto.class));
+//        }
+
+//        return optionDtos;
+        return null;
+    }
+
+    static class OptionDto {
+
+        @JsonProperty("icon_url")
+        private String iconUrl;
+
+        @JsonProperty("content")
+        private String content;
+
     }
 }

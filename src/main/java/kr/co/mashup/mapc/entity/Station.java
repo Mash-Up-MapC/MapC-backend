@@ -5,6 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * 정류장
+ */
 @Entity
 @Table(name = "station")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,11 +25,11 @@ public class Station extends BaseTimeEntity {
     @JoinColumn(name = "course_id")
     private Course course;
 
-    @Column(name = "station_name", length = 50, nullable = false)
-    private String stationName;
+    @Column(name = "name", length = 50, nullable = false)
+    private String name;
 
-    @Column(name = "station_number", nullable = false)
-    private int stationNumber;
+    @Column(name = "number", nullable = false)
+    private int number;
 
     @Column(name = "latitude", nullable = false)
     private Double latitude;
@@ -46,4 +49,14 @@ public class Station extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "station")
     private List<StationTimeTable> timeTables;
+
+    @Builder
+    public Station(Course course, String name, int number, Double latitude, Double longitude, String audioContent) {
+        this.course = course;
+        this.name = name;
+        this.number = number;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.audioContent = audioContent;
+    }
 }

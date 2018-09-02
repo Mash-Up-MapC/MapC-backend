@@ -26,7 +26,7 @@ public class Information extends BaseTimeEntity {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "information")
     private InformationCategory informationCategory;
-    
+
     @Column(name = "title", length = 100)
     private String title;
 
@@ -36,4 +36,12 @@ public class Information extends BaseTimeEntity {
 
     @Column(name = "image_url", length = 300)
     private String imageUrl;
+
+    @Builder
+    public Information(Station station, String title, String content, String imageUrl) {
+        this.station = station;
+        this.title = title;
+        this.content = content;
+        this.imageUrl = imageUrl;
+    }
 }

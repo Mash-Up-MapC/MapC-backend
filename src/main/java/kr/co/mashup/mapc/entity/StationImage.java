@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * 정류장의 이미지
+ */
 @Entity
 @Table(name = "station_image")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -23,4 +26,10 @@ public class StationImage extends BaseTimeEntity {
 
     @Column(name = "image_url", length = 300)
     private String imageUrl;
+
+    @Builder
+    public StationImage(Station station, String imageUrl) {
+        this.station = station;
+        this.imageUrl = imageUrl;
+    }
 }

@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 /**
- * 정류장의 주변 정보의 카테고리
+ * 정류장의 주변 정보와 카테고리 관계
  */
 @Entity
 @Table(name = "information_category")
@@ -27,4 +27,10 @@ public class InformationCategory extends BaseTimeEntity {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "information_id")
     private Information information;
+
+    @Builder
+    public InformationCategory(Category category, Information information) {
+        this.category = category;
+        this.information = information;
+    }
 }
