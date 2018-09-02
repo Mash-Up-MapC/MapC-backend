@@ -5,5 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 interface TouristRepository extends JpaRepository<Tourist, Long> {
 
-
 }

@@ -5,16 +5,19 @@ import lombok.*;
 import javax.persistence.*;
 
 /**
- * 정류장의 이미지
+ * 정류장 시간표
+ * TODO: 2018. 8. 31. time table 데이터보고 필드 추가 필요
+ * <p>
+ * Created by ethan.kim on 2018. 8. 31..
  */
 @Entity
-@Table(name = "station_image")
+@Table(name = "station_time_table")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper = false, of = "id")
-public class StationImage extends BaseTimeEntity {
-
+public class StationTimeTable extends BaseTimeEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,12 +27,12 @@ public class StationImage extends BaseTimeEntity {
     @JoinColumn(name = "station_id")
     private Station station;
 
-    @Column(name = "image_url", length = 300)
-    private String imageUrl;
+    @Column(name = "arrival_time", length = 45, nullable = false)
+    private String arrivalTime;
 
     @Builder
-    public StationImage(Station station, String imageUrl) {
+    public StationTimeTable(Station station, String arrivalTime) {
         this.station = station;
-        this.imageUrl = imageUrl;
+        this.arrivalTime = arrivalTime;
     }
 }

@@ -4,33 +4,44 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * 정류장의 주변 정보
+ */
+@Entity
+@Table(name = "information")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
-@Entity
 @ToString
-@Table(name = "information")
-public class Information {
+@EqualsAndHashCode(callSuper = false, of = "id")
+public class Information extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "station_id")
     private Station station;
 
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
-            mappedBy = "information")
-    private InformationType infoType;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "information")
+    private InformationCategory informationCategory;
 
-    @Column(name = "title")
+    @Column(name = "title", length = 100)
     private String title;
 
-    @Column(name = "content")
+    @Lob
+    @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", length = 300)
     private String imageUrl;
+
+    @Builder
+    public Information(Station station, String title, String content, String imageUrl) {
+        this.station = station;
+        this.title = title;
+        this.content = content;
+        this.imageUrl = imageUrl;
+    }
 }

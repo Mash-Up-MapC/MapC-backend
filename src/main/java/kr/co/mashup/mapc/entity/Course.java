@@ -5,55 +5,68 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * 관광 코스
+ */
+@Entity
+@Table(name = "course")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
-@Entity
-@ToString(exclude = {"courseImageItems", "priceItems"})
-@Table(name = "course")
-public class Course  {
+@ToString(exclude = {"courseOptions", "courseImages", "prices", "bookings", "stations"})
+@EqualsAndHashCode(callSuper = false, of = "id")
+public class Course extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="company_id", nullable = true)
-    private Company company;
+    @Column(name = "title", length = 45, nullable = false)
+    private String title;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // TODO FetchType 별 차이 알아내기
-    @JoinColumn(name = "course_id")
-    private List<CourseImage> courseImageItems;
+    @Column(name = "sub_title", length = 24, nullable = false)
+    private String subTitle;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
-    private List<Price> priceItems;
+    @Column(name = "main_color", length = 10, nullable = false)
+    private String mainColor;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
-    private List<Booking> bookingItems;
+    @Column(name = "sub_color", length = 10, nullable = false)
+    private String subColor;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
-    private List<Station> stationItems;
+    @Column(name = "icon_url", length = 300, nullable = false)
+    private String iconUrl;
 
-    @Column(name = "course_name")
-    private String courseName;
-
-    @Column(name = "note_one")
-    private String noteOne;
-
-    @Column(name = "note_two")
-    private String noteTwo;
-
-    @Column(name = "description")
+    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-//    @Builder
-//    public Course (String courseName, String description, String noteOne, String noteTwo) {
-//        this.courseName = courseName;
-//        this.description = description;
-//        this.noteOne = noteOne;
-//        this.noteTwo = noteTwo;
-//    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id", nullable = false)
+    private Company company;
+
+    @OneToMany(mappedBy = "course")
+    private List<CourseOption> courseOptions;
+
+    @OneToMany(mappedBy = "course")
+    private List<CourseImage> courseImages;
+
+    @OneToMany(mappedBy = "course")
+    private List<Price> prices;
+
+    @OneToMany(mappedBy = "course")
+    private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "course")
+    private List<Station> stations;
+
+    @Builder
+    public Course(String title, String subTitle, String mainColor, String subColor, String iconUrl, String description, Company company) {
+        this.title = title;
+        this.subTitle = subTitle;
+        this.mainColor = mainColor;
+        this.subColor = subColor;
+        this.iconUrl = iconUrl;
+        this.description = description;
+        this.company = company;
+    }
 }

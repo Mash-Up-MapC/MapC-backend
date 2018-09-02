@@ -6,29 +6,29 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * 관광객
+ * 카테고리
  */
 @Entity
-@Table(name = "tourist")
+@Table(name = "category")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString(exclude = {"bookings"})
+@ToString(exclude = {"informationCategories"})
 @EqualsAndHashCode(callSuper = false, of = "id")
-public class Tourist extends BaseTimeEntity {
+public class Category extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "uuid", nullable = false)
-    private String uuid;
+    @Column(name = "name", length = 100)
+    private String name;
 
-    @OneToMany(mappedBy = "tourist")
-    private List<Booking> bookings;
+    @OneToMany(mappedBy = "category")
+    private List<InformationCategory> informationCategories;
 
     @Builder
-    public Tourist(String uuid) {
-        this.uuid = uuid;
+    public Category(String name) {
+        this.name = name;
     }
 }
