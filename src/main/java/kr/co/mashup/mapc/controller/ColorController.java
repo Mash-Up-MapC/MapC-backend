@@ -39,36 +39,4 @@ public class ColorController {
         color.setCode(code);
         return color;
     }
-
-
-//    @Autowired
-//    private CourseOptionRepository option2Repository;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @GetMapping(path = "/test")
-    public List<OptionDto> test() throws Exception {
-
-//        List<CourseOption> options = option2Repository.findByCourseIdAndOptionType(1L, "summary");
-
-
-//        List<OptionDto> optionDtos = new ArrayList<>();
-//        for (CourseOption option2 : options) {
-//            optionDtos.add(objectMapper.readValue(option2.getOptionValue(), OptionDto.class));
-//        }
-
-//        return optionDtos;
-        return null;
-    }
-
-    static class OptionDto {
-
-        @JsonProperty("icon_url")
-        private String iconUrl;
-
-        @JsonProperty("content")
-        private String content;
-
-    }
 }

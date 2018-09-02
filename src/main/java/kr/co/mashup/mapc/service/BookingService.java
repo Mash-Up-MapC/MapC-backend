@@ -16,7 +16,7 @@ public class BookingService {
         this.courseRepository = courseRepository;
     }
 
-    public List<CourseDto.CourseSelection> getCoueses() {
+    public List<CourseDto.CourseSelection> getCourses() {
         return courseRepository.findAll()
                 .stream()
                 .map(CourseDto.CourseSelection::new)

@@ -21,6 +21,6 @@ public class BookingController {
 
     @GetMapping(path = "/course/list")
     public ResponseEntity<List<CourseDto.CourseSelection>> getCourse() {
-        return new ResponseEntity<>(bookingService.getCoueses(), HttpStatus.OK);
+        return new ResponseEntity<>(bookingService.getCourses(), HttpStatus.OK);
     }
 }
