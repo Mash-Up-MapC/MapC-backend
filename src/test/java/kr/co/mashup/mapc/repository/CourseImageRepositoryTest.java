@@ -53,13 +53,13 @@ public class CourseImageRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 코스_이미지_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 코스_이미지_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<CourseImage> courseImages = sut.findAll();
 
         // then :
-        assertThat(courseImages).hasSize(1);
+        assertThat(courseImages).isNotEmpty();
     }
 }

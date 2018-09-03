@@ -57,13 +57,13 @@ public class StationRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 정류장_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 정류장_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<Station> stations = sut.findAll();
 
         // then :
-        assertThat(stations).hasSize(1);
+        assertThat(stations).isNotEmpty();
     }
 }

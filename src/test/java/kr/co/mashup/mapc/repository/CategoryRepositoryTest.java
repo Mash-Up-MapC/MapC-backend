@@ -33,13 +33,13 @@ public class CategoryRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 카테고리_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 카테고리_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<Category> categories = sut.findAll();
 
         // then :
-        assertThat(categories).hasSize(1);
+        assertThat(categories).isNotEmpty();
     }
 }
