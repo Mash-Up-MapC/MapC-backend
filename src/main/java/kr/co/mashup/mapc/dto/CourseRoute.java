@@ -13,12 +13,18 @@ import java.util.List;
 @Getter
 public class CourseRoute {
 
-    @JsonProperty("course_name")
-    private final String courseName;
+    @JsonProperty("title")
+    private final String title;
 
-    @JsonProperty("course_ information")
-    private final String courseInformation;
+    @JsonProperty("sub_title")
+    private final String subTitle;
+
+    @JsonProperty("main_color")
+    private final String mainColor;
+
+    @JsonProperty("options")
+    private final List<String> courseOptions;
 
     @JsonProperty("stations")
-    private final List<Station> stations;
+    private final List<StationDto> stations;
 }

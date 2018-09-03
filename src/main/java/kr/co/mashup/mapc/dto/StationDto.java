@@ -9,14 +9,14 @@ import lombok.Value;
  */
 @Value(staticConstructor = "of")
 @Getter
-public class Station {
+public class StationDto {
 
-    @JsonProperty("stations_number")
-    private final int stationsNumber;
+    @JsonProperty("number")
+    private final int stationNumber;
 
-    @JsonProperty("station_name")
+    @JsonProperty("name")
     private final String stationName;
 
-    @JsonProperty("station_location")
+    @JsonProperty("location")
     private final Location stationLocation;
 }

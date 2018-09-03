@@ -35,7 +35,8 @@ public class CourseOption extends BaseTimeEntity {
 
     public enum OptionType {
         SUMMARY,
-        DETAIL
+        DETAIL,
+        ROUTE;
     }
 
     @Builder
