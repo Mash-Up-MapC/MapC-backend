@@ -4,6 +4,7 @@ package kr.co.mashup.mapc.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * 예약 정보
@@ -48,12 +49,12 @@ public class Booking extends BaseTimeEntity {
     private int childPersonnel;
 
     @Column(name = "booking_date", length = 100, nullable = false)
-    private String bookingDate;
+    private Date bookingDate;
 
     @Column(name = "boarding_time", length = 100, nullable = false)
     private String boardingTime;
 
-    @Column(name = "boarding_place", nullable = false)
+    @Column(name = "boarding_place")
     private String boardingPlace;
 
     @Column(name = "sum_price", nullable = false)
@@ -64,6 +65,7 @@ public class Booking extends BaseTimeEntity {
 
     @Builder
     public Booking(Tourist tourist,
+                   Long id,
                    Course course,
                    String bookerName,
                    String bookerPassword,
@@ -71,10 +73,11 @@ public class Booking extends BaseTimeEntity {
                    String homePhoneNumber,
                    int adultPersonnel,
                    int childPersonnel,
-                   String bookingDate,
+                   Date bookingDate,
                    String boardingTime,
                    String boardingPlace,
                    int sumPrice, String paymentMethod) {
+        this.id = id;
         this.tourist = tourist;
         this.course = course;
         this.bookerName = bookerName;
