@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name = "booking")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString
+@ToString(exclude = {"tourist", "course"})
 @EqualsAndHashCode(callSuper = false, of = "id")
 public class Booking extends BaseTimeEntity {
 
