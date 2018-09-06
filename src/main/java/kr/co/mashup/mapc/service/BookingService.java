@@ -11,6 +11,7 @@ import kr.co.mashup.mapc.repository.TouristRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,6 +33,7 @@ public class BookingService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void createBooking(BookingDto.BookingReqDto body) {
         Optional<Tourist> tourist = touristRepository.findByUuid(body.getUuid()); //TODO tourist null 이면 에러 뜬다.
         Optional<Course> course = courseRepository.findById(body.getCourseId()); //TODO 코스아이디 null 일떄 예외 - Optional

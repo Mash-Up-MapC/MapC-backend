@@ -20,5 +20,5 @@ public class CourseRoute {
     private final String courseInformation;
 
     @JsonProperty("stations")
-    private final List<Station> stations;
+    private final List<StationDto> stations;
 }

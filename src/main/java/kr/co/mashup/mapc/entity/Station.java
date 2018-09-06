@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "station")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString(exclude = {"stationImages"})
+@ToString(exclude = {"course", "stationImages", "informations", "timeTables"})
 @EqualsAndHashCode(callSuper = false, of = "id")
 public class Station extends BaseTimeEntity {
 
@@ -44,10 +44,12 @@ public class Station extends BaseTimeEntity {
     @Column(name = "audio_content", columnDefinition = "TEXT")
     private String audioContent;
 
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station")
+//    @JoinColumn(name = "station_id")
     @OneToMany(mappedBy = "station")
     private List<StationImage> stationImages;
 
-    @OneToMany(mappedBy = "station")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "station", cascade = CascadeType.ALL)
     private List<Information> informations;
 
     @OneToMany(mappedBy = "station")

@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "station_image")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString
+@ToString(exclude = {"station"})
 @EqualsAndHashCode(callSuper = false, of = "id")
 public class StationImage extends BaseTimeEntity {
 
