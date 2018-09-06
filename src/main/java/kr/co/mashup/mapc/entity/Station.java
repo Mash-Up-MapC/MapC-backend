@@ -44,10 +44,12 @@ public class Station extends BaseTimeEntity {
     @Column(name = "audio_content", columnDefinition = "TEXT")
     private String audioContent;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station")
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station")
+//    @JoinColumn(name = "station_id")
+    @OneToMany(mappedBy = "station")
     private List<StationImage> stationImages;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "station", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "station", cascade = CascadeType.ALL)
     private List<Information> informations;
 
     @OneToMany(mappedBy = "station")

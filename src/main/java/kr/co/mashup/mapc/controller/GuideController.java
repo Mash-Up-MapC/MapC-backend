@@ -1,6 +1,7 @@
 package kr.co.mashup.mapc.controller;
 
 import kr.co.mashup.mapc.dto.CourseDto;
+import kr.co.mashup.mapc.dto.StationDto;
 import kr.co.mashup.mapc.service.GuideService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,9 +38,8 @@ public class GuideController {
 
     //TODO 일단 요청하면 코스 1 정보만 내리기.
     @GetMapping(path = "/info")
-    public void getGuideBasicInfo() {
-        guideService.getBasicInfo();
-        return ;
+    public StationDto.ResGuideStation getGuideBasicInfo() {
+        return guideService.getBasicInfo();
     }
 
     @GetMapping(path = "/info/enjoyment")

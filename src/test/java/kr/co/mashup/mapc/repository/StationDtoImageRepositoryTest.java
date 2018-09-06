@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by ethan.kim on 2018. 9. 2..
  */
-public class StationImageRepositoryTest extends DataJpaTestContext {
+public class StationDtoImageRepositoryTest extends DataJpaTestContext {
 
     @Autowired
     private StationImageRepository sut;

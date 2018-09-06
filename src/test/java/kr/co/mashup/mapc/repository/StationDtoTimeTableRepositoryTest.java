@@ -4,6 +4,7 @@ import kr.co.mashup.mapc.DataJpaTestContext;
 import kr.co.mashup.mapc.entity.Company;
 import kr.co.mashup.mapc.entity.Course;
 import kr.co.mashup.mapc.entity.Station;
+import kr.co.mashup.mapc.entity.StationTimeTable;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,10 +17,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by ethan.kim on 2018. 9. 2..
  */
-public class StationRepositoryTest extends DataJpaTestContext {
+public class StationDtoTimeTableRepositoryTest extends DataJpaTestContext {
 
     @Autowired
-    private StationRepository sut;
+    private StationTimeTableRepository sut;
 
     @Before
     public void setUp() throws Exception {
@@ -48,7 +49,13 @@ public class StationRepositoryTest extends DataJpaTestContext {
                 .longitude(-71.0206956)
                 .audioContent("이번 정류장은 광화문입니다.")
                 .build();
-        sut.save(station);
+        testEntityManager.persistAndFlush(station);
+
+        StationTimeTable stationTimeTable = StationTimeTable.builder()
+                .station(station)
+                .arrivalTime("9:00")
+                .build();
+        sut.save(stationTimeTable);
     }
 
     @After
@@ -57,13 +64,13 @@ public class StationRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 정류장_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 정류장_시간표_리스트_조회시_1개가_조회된다() throws Exception {
         // given :
 
         // when :
-        List<Station> stations = sut.findAll();
+        List<StationTimeTable> stationTimeTables = sut.findAll();
 
         // then :
-        assertThat(stations).hasSize(1);
+        assertThat(stationTimeTables).hasSize(1);
     }
 }
