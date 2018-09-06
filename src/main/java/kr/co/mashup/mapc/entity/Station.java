@@ -28,6 +28,9 @@ public class Station extends BaseTimeEntity {
     @Column(name = "name", length = 50, nullable = false)
     private String name;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "number", nullable = false)
     private int number;
 
@@ -51,9 +54,10 @@ public class Station extends BaseTimeEntity {
     private List<StationTimeTable> timeTables;
 
     @Builder
-    public Station(Course course, String name, int number, Double latitude, Double longitude, String audioContent) {
+    public Station(Course course, String name, String description, int number, Double latitude, Double longitude, String audioContent) {
         this.course = course;
         this.name = name;
+        this.description = description;
         this.number = number;
         this.latitude = latitude;
         this.longitude = longitude;
