@@ -26,6 +26,8 @@ public class BookingService {
     private TouristRepository touristRepository;
     private BookingRepository bookingRepository;
 
+
+    //courses api 통합여부 논의
     public List<CourseDto.CourseSelection> getCourses() {
         return courseRepository.findAll()
                 .stream()

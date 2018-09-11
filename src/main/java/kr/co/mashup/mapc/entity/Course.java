@@ -50,7 +50,7 @@ public class Course extends BaseTimeEntity {
     @OneToMany(mappedBy = "course")
     private List<CourseImage> courseImages;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     private List<Price> prices;
 
     @OneToMany(mappedBy = "course")
