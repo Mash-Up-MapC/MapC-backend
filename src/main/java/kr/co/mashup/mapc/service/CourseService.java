@@ -49,7 +49,6 @@ public class CourseService {
                 //s.getStationImages().get(0).getImageUrl() 추후 디비에 이미지 추가시 변경
             }
 
-            page += 1;
         } else {
             page = -1;
         }
