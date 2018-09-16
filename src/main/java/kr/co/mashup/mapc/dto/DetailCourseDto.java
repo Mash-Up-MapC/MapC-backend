@@ -22,9 +22,9 @@ public class DetailCourseDto {
     private String price;
     private String operating_time;
     private String description;
-    private List<TouristDestinationDto> tourist_destinaion;
+    private List<TouristDestination> tourist_destinaion;
 //    private List<Route> route; 추후 코스 루트 api 추가시 적용
-    private List<TouristAttractionsDto> tourist_attractions;
+    private List<TouristAttractions> tourist_attractions;
     private int page;//페이징처리?
 
     public void convertToDto(Course course) {
@@ -66,19 +66,23 @@ public class DetailCourseDto {
         }
 
         for(int i = 0; i < 3; i++) {
-            TouristDestinationDto tdTmp = new TouristDestinationDto();
-            tdTmp.setName(stations.get(i).getName());
+            TouristDestination tdTmp = TouristDestination.
+                    builder().
+                    name(stations.get(i).getName()).
+                    img("https://s3.ap-northeast-2.amazonaws.com/key-s3/mapc/%E1%84%80%E1%85%AA%E1%86%BC%E1%84%92%E1%85%AA%E1%84%86%E1%85%AE%E1%86%AB1.JPG").
+                    build();
 //            tTmp.setImg(stations.get(i).getStationImages().get(0).getImageUrl());
-            tdTmp.setImg("https://s3.ap-northeast-2.amazonaws.com/key-s3/mapc/%E1%84%80%E1%85%AA%E1%86%BC%E1%84%92%E1%85%AA%E1%84%86%E1%85%AE%E1%86%AB1.JPG");
             tourist_destinaion.add(tdTmp);
         }
 
         for(int i = 0; i < 3; i++) {
-            TouristAttractionsDto taTmp = new TouristAttractionsDto();
-            taTmp.setName(stations.get(i).getName());
+            TouristAttractions taTmp = TouristAttractions.
+                    builder().
+                    name(stations.get(i).getName()).
+                    img("https://s3.ap-northeast-2.amazonaws.com/key-s3/mapc/%E1%84%80%E1%85%AA%E1%86%BC%E1%84%92%E1%85%AA%E1%84%86%E1%85%AE%E1%86%AB1.JPG").
+                    description(stations.get(i).getDescription()).
+                    build();
 //            tTmp.setImg(stations.get(i).getStationImages().get(0).getImageUrl());
-            taTmp.setImg("https://s3.ap-northeast-2.amazonaws.com/key-s3/mapc/%E1%84%80%E1%85%AA%E1%86%BC%E1%84%92%E1%85%AA%E1%84%86%E1%85%AE%E1%86%AB1.JPG");
-            taTmp.setDescription(stations.get(i).getDescription());
             tourist_attractions.add(taTmp);
         }
     }
