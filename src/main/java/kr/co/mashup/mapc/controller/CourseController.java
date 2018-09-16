@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import kr.co.mashup.mapc.dto.TouristSpotDto;
 import kr.co.mashup.mapc.service.CourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,10 +32,9 @@ public class CourseController {
             @ApiResponse(code = 200, message = "조회 성공")
     })
     @GetMapping(path = "/{course_Id}/{page}")
-    public ResponseEntity<Long> getMoreTouristSpot(
+    public ResponseEntity<TouristSpotDto> getMoreTouristSpot(
             @PathVariable(value = "course_Id") Long courseId, @PathVariable(value = "page") int page) {
-        courseService.getMoreTouristSpot(courseId, page);
-        return new ResponseEntity<>(courseId, HttpStatus.OK);
+        return new ResponseEntity<TouristSpotDto>(courseService.getMoreTouristSpot(courseId, page), HttpStatus.OK);
     }
 }
 
