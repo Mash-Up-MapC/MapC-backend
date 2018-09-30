@@ -31,7 +31,6 @@ public class Price extends BaseTimeEntity {
     @Column(name = "passenger_type")
     private String passengerType;
 
-
     @Builder
     public Price(Course course, int price, String passengerType) {
         this.course = course;
