@@ -28,17 +28,12 @@ public class Price extends BaseTimeEntity {
     @Column(name = "price")
     private int price;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "passenger_type")
-    private PassengerType passengerType;
+    private String passengerType;
 
-    public enum PassengerType {
-        ADULT,
-        CHILD
-    }
 
     @Builder
-    public Price(Course course, int price, PassengerType passengerType) {
+    public Price(Course course, int price, String passengerType) {
         this.course = course;
         this.price = price;
         this.passengerType = passengerType;

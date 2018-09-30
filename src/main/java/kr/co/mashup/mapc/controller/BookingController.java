@@ -25,6 +25,7 @@ public class BookingController {
     /**
      *  Deprecated API
      */
+    //courses api 통합여부 논의
     @GetMapping(path = "/course/list")
     public ResponseEntity<List<CourseDto.CourseSelection>> getCourse() {
         return new ResponseEntity<>(bookingService.getCourses(), HttpStatus.OK);

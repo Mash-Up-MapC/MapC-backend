@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class CourseDto {
-
+    //courses api 통합여부 논의
     @Data
     @ToString
     @Slf4j
@@ -19,7 +19,7 @@ public class CourseDto {
         private long id;
         private String courseName;
         private List<Integer> price;
-        private List<Price.PassengerType> passengerType;
+//        private List<Price.PassengerType> passengerType;
 
         public CourseSelection(Course entity) {
             this.id = entity.getId();
@@ -28,10 +28,10 @@ public class CourseDto {
             for (Price p : entity.getPrices()) {
                 price.add(p.getPrice());
             }
-            passengerType = new ArrayList<>();
-            for (Price pp : entity.getPrices()) {
-                passengerType.add(pp.getPassengerType());
-            }
+//            passengerType = new ArrayList<>();
+//            for (Price pp : entity.getPrices()) {
+//                passengerType.add(pp.getPassengerType());
+//            }
         }
     }
 }
