@@ -71,14 +71,14 @@ public class GuideService {
 
             for (int i = 1; i < 4; i++) {
                 attraction.add(new StationDto.InfoAttraction(stationData.get().getInformations().get(i).getImageUrl(),
-                        stationData.get().getInformations().get(i).getContent(),
-                        stationData.get().getInformations().get(i).getTitle()));
+                        stationData.get().getInformations().get(i).getTitle(),
+                        stationData.get().getInformations().get(i).getContent()));
             }
 
             for (int i = 4; i < 7; i++) {
                 restaurant.add(new StationDto.InfoRestaurant(stationData.get().getInformations().get(i).getImageUrl(),
-                        stationData.get().getInformations().get(i).getContent(),
-                        stationData.get().getInformations().get(i).getTitle()));
+                        stationData.get().getInformations().get(i).getTitle(),
+                        stationData.get().getInformations().get(i).getContent()));
             }
 
 
