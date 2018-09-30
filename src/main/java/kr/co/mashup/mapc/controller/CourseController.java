@@ -46,17 +46,14 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-      /*
-    By 동희
-     */
-//    @ApiOperation(value = "코스 리스트 조회", notes = "코스 리스트 조회를 한다")
-//    @ApiResponses(value = {
-//            @ApiResponse(code = 200, message = "조회 성공")
-//    })
-//    @GetMapping(path = "/courses", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-//    public ResponseEntity<List<CoursesDto.CourseSelection>> getCourses() {
-//        return new ResponseEntity<>(courseService.getCourses(), HttpStatus.OK);
-//    }
+    @ApiOperation(value = "코스 리스트 조회", notes = "코스 리스트 조회를 한다")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "조회 성공")
+    })
+    @GetMapping(path = "/courses", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<CoursesDto.CourseSelection>> getCourses() {
+        return new ResponseEntity<>(courseService.getCourses(), HttpStatus.OK);
+    }
 
 
     @ApiOperation(value = "관광지 리스트 더 보기", notes = "관광지 리스트를 더 조회 한다.")
