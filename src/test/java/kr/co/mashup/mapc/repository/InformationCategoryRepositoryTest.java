@@ -74,13 +74,13 @@ public class InformationCategoryRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 정류장의_주변정보_카테고리_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 정류장의_주변정보_카테고리_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<InformationCategory> informationCategories = sut.findAll();
 
         // then :
-        assertThat(informationCategories).hasSize(1);
+        assertThat(informationCategories).isNotEmpty();
     }
 }

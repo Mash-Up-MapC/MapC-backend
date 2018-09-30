@@ -33,13 +33,13 @@ public class TouristRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 관광객_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 관광객_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<Tourist> tourists = sut.findAll();
 
         // then :
-        assertThat(tourists).hasSize(1);
+        assertThat(tourists).isNotEmpty();
     }
 }

@@ -10,7 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -55,7 +58,7 @@ public class BookingRepositoryTest extends DataJpaTestContext {
                 .homePhoneNumber("021231234")
                 .adultPersonnel(2)
                 .childPersonnel(0)
-                .bookingDate("2018-08-21")
+                .bookingDate(new Date())
                 .boardingTime("10:00 ~ 10:30")
                 .boardingPlace("광화문")
                 .sumPrice(36000)
@@ -70,13 +73,13 @@ public class BookingRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 예약_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 예약_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<Booking> bookings = sut.findAll();
 
         // then :
-        assertThat(bookings).hasSize(1);
+        assertThat(bookings).isNotEmpty();
     }
 }

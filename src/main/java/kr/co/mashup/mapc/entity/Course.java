@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 관광 코스
@@ -45,7 +46,7 @@ public class Course extends BaseTimeEntity {
     private Company company;
 
     @OneToMany(mappedBy = "course")
-    private List<CourseOption> courseOptions;
+    private Set<CourseOption> courseOptions;
 
     @OneToMany(mappedBy = "course")
     private List<CourseImage> courseImages;

@@ -54,13 +54,13 @@ public class PriceRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 가격_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 가격_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<Price> prices = sut.findAll();
 
         // then :
-        assertThat(prices).hasSize(1);
+        assertThat(prices).isNotEmpty();
     }
 }

@@ -64,13 +64,13 @@ public class StationDtoTimeTableRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 정류장_시간표_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 정류장_시간표_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<StationTimeTable> stationTimeTables = sut.findAll();
 
         // then :
-        assertThat(stationTimeTables).hasSize(1);
+        assertThat(stationTimeTables).isNotEmpty();
     }
 }

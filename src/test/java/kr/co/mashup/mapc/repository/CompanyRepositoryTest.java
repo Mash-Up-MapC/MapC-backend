@@ -33,13 +33,13 @@ public class CompanyRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 회사_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 회사_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<Company> companies = sut.findAll();
 
         // then :
-        assertThat(companies).hasSize(1);
+        assertThat(companies).isNotEmpty();
     }
 }

@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Value;
 
 /**
  * Created by ethan.kim on 2018. 8. 30..

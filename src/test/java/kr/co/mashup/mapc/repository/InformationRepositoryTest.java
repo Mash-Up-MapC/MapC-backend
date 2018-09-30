@@ -66,13 +66,13 @@ public class InformationRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 예약_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 예약_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<Information> informations = sut.findAll();
 
         // then :
-        assertThat(informations).hasSize(1);
+        assertThat(informations).isNotEmpty();
     }
 }

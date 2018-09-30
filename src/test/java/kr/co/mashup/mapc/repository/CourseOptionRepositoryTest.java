@@ -55,13 +55,13 @@ public class CourseOptionRepositoryTest extends DataJpaTestContext {
     }
 
     @Test
-    public void 코스_옵션_리스트_조회시_1개가_조회된다() throws Exception {
+    public void 코스_옵션_리스트_조회시_정상적으로_조회된다() throws Exception {
         // given :
 
         // when :
         List<CourseOption> courseOptions = sut.findAll();
 
         // then :
-        assertThat(courseOptions).hasSize(1);
+        assertThat(courseOptions).isNotEmpty();
     }
 }
